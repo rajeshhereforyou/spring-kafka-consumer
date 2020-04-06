@@ -1,0 +1,44 @@
+*target*
+*.jar
+*.war
+*.ear
+*.class
+*.iml
+
+# IntelliJ
+**/workspace.xml
+**/tasks.xmlgit a
+.idea/
+.idea/libraries/*.xml
+*.iws
+# Maven
+log/
+target/
+
+# Neo4j
+**/*.db
+
+#Gradle
+.gradle
+build/
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# OSX
+**/.DS_Store
+
+#eclipse files
+.project
+.classpath
+.settings/
+bin/
+out/
+.gradletasknamecache
+
+
+#Ignore temp docker compose files created during component tests execution
+**/docker_kafka_compose.yml
+
+#Ignore Avro schema contracts
+**/integration-test-api/src/main/java/SampleRecord.java
