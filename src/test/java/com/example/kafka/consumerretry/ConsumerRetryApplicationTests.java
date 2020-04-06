@@ -21,7 +21,7 @@ public class ConsumerRetryApplicationTests {
 
 	@Test
 	public void contextLoads() throws InterruptedException {
-		this.template.send("so60641945", "bar");
+		this.template.send("testTopic", "MyTestMessage");
 		Thread.sleep(30_000);
 	}
 
