@@ -1,4 +1,4 @@
-package com.example.kafka.consumerretry;
+package com.example.kafka.consumer.retry;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -11,14 +11,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.listener.ErrorHandler;
 import org.springframework.kafka.listener.MessageListenerContainer;
 import org.springframework.kafka.listener.SeekToCurrentErrorHandler;
-import org.springframework.retry.backoff.FixedBackOffPolicy;
-import org.springframework.retry.policy.AlwaysRetryPolicy;
-import org.springframework.retry.support.RetryTemplate;
-import org.springframework.stereotype.Component;
 
 @SpringBootApplication
 public class ConsumerRetryApplication {
@@ -41,7 +36,7 @@ public class ConsumerRetryApplication {
 		class MyEH extends SeekToCurrentErrorHandler {
 
 			MyEH() {
-				super(-1);
+				super(5);
 			}
 
 			@Override
